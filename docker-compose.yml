@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=senhadificil
+    ports:
+      - 5432:5432
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+  
+  pgadmin:
+    image: elestio/pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@teste.com
+      - PGADMIN_DEFAULT_PASSWORD=senhadificil
+    ports:
+      - 8081:80
+
+volumes:
+  pg_data:
